@@ -4,65 +4,70 @@
 
 This project focuses on exploratory analysis of credit card customer data to understand spending habits, payment behavior, and customer segmentation. The primary goal is to analyze spending patterns to provide actionable insights for marketing, customer retention, and risk management.
 
+#### Objectives
+
+- Analyze customer spending habits and patterns to identify trends.
+- Understand payment behavior among different customer segments.
+- Segment customers based on spending and payment behaviors to inform marketing strategies and enhance customer retention.
+- Provide insights for risk management by evaluating payment reliability and spending limits.
+
 ### 2. Dataset
 
-The dataset used in this project is stored in a zip file named Credit Card Dataset for Clustering.zip. It contains information about various customer activities, including their balance, purchases, payments, and credit utilization.
+The dataset used for this project is the "Credit Card Customer Dataset," which includes the following columns:
 
-Key features in the dataset:
-
-- BALANCE: Current balance on the credit card.
-- PURCHASES: Total purchases made.
-- CREDIT_LIMIT: Credit limit assigned to the customer.
-- PAYMENTS: Amount paid by the customer.
-- MINIMUM_PAYMENTS: Minimum payments made by the customer.
-- PRC_FULL_PAYMENT: Percentage of months the customer paid the full balance.
-- TENURE: Number of months the customer has been using the service.
+- `CUST_ID`: Unique identifier for each customer.
+- `BALANCE`: Current balance on the credit card.
+- `PURCHASES`: Total purchases made.
+- `CASH_ADVANCE`: Amount withdrawn as cash advances.
+- `CREDIT_LIMIT`: Maximum credit limit for the card.
+- `PAYMENTS`: Total payments made by the customer.
+- `MINIMUM_PAYMENTS`: Minimum payment required.
+- `PRC_FULL_PAYMENT`: Percentage of payments made in full.
+- Additional features related to spending and payment behavior.
 
 ### 3. Methodology
 
-### Data Loading:
+1. **Data Loading and Initial Inspection**:
+   - The dataset is loaded and initial inspection is performed to understand its structure and contents.
 
-- Extract and load the credit card dataset from the provided zip file.
-- Handle missing values and detect duplicate rows.
+2. **Data Cleaning**:
+   - Missing values are imputed using the median for relevant columns, and duplicates are removed.
 
-### Feature Engineering:
+3. **Feature Engineering**:
+   - New features are created to enhance analysis, including:
+     - `MONTHLY_AVG_PURCHASE`: Average purchases per month.
+     - `CREDIT_UTILIZATION`: Ratio of current balance to credit limit.
+     - `PAYMENT_MIN_PAYMENT_RATIO`: Ratio of payments to minimum payments.
 
-Create new features, such as:
-- Monthly Average Purchase: Purchases made per month.
-- Credit Utilization: The percentage of credit limit used by the customer.
-- Payment to Minimum Payment Ratio: The ratio of total payments to minimum payments.
+4. **Data Scaling**:
+   - Numerical features are standardized to ensure uniformity across the dataset.
 
-##### Exploratory Data Analysis (EDA):
+5. **Exploratory Data Analysis (EDA)**:
+   - Histograms, boxplots, and correlation heatmaps are generated to visualize and understand data distributions and relationships.
 
-- Visualize the distribution of key features using boxplots and histograms.
-- Create a correlation heatmap to explore relationships between numerical variables.
+6. **Customer Segmentation**:
+   - Customers are categorized based on spending behavior, purchase frequency, and payment habits.
 
-##### Segmentation:
-
-- Segment customers based on their spending, purchase frequency, and payment habits using thresholds.
-- Visualize customer segments using countplots and descriptive statistics.
-
-##### Analysis:
-
-- Explore key characteristics of each customer segment (e.g., high spenders, low spenders).
-- Provide insights into customer behavior based on the cluster assignments.
+7. **Clustering Analysis**:
+   - K-Means clustering is applied to group customers into distinct segments based on spending and payment characteristics.
 
 ### 4.Key Insights
 
-##### Spending Segments:
+The analysis revealed key insights regarding customer segments:
+- **Spending Segments**:
+  
+  - Medium Spender: 4474
+  - High Spender: 2238
+  - Low Spender: 2238
 
-- Customers are categorized into high, medium, and low spenders.
-- High spenders typically have larger credit limits and higher balances, while low spenders tend to have lower balances and smaller payments.
+- **Cluster Assignments**:
 
-##### Frequency Segments:
+  - Cluster 0: 1462 customers
+  - Cluster 1: 5989 customers
+  - Cluster 2: 1372 customers
+  - Cluster 3: 127 customers
 
-- Customers are classified into frequent users, moderate users, and occasional users based on their purchase frequency.
-- Frequent users tend to make more purchases and have higher balances compared to occasional users, who rely more on cash advances.
-
-##### Payment Segments:
-
-- Customers are segmented based on their payment behavior into full payers, partial payers, and minimum payers.
-- Full payers tend to have lower balances and make timely payments, while minimum payers have significantly higher balances and are more likely to make minimum payments only.
+These insights can be leveraged to inform marketing strategies, enhance customer retention efforts, and improve risk management practices.
 
 ### 5.Source:
 

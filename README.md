@@ -1,57 +1,76 @@
-# Credit-Card-Customer Analysis
+# Credit Card Customer Segmentation
 
-### 1. Project Overview
+## Overview
 
-This project focuses on exploratory analysis of credit card customer data to understand spending habits, payment behavior, and customer segmentation. The primary goal is to analyze spending patterns to provide actionable insights for marketing, customer retention, and risk management.
+This project aims to analyze credit card customer data to identify spending habits, payment behavior, and customer segmentation using clustering techniques. The results provide actionable insights for targeted marketing strategies, customer retention programs, and risk management.
 
-#### Objectives
+## Project Goals
 
-- Analyze customer spending habits and patterns to identify trends.
-- Understand payment behavior among different customer segments.
-- Segment customers based on spending and payment behaviors to inform marketing strategies and enhance customer retention.
-- Provide insights for risk management by evaluating payment reliability and spending limits.
+1. **Data Cleaning**: Handle missing values, remove duplicates, and clean numerical features.
+2. **Feature Engineering**: Create new features like `MONTHLY_AVG_PURCHASE`, `CREDIT_UTILIZATION`, and `PAYMENT_MIN_PAYMENT_RATIO` to better understand customer behavior.
+3. **Exploratory Data Analysis (EDA)**: Univariate, bivariate, and multivariate analysis using visualizations to identify trends and relationships.
+4. **Customer Segmentation**: Apply clustering techniques to segment customers into meaningful groups.
+5. **Cluster Profiling**: Understand the characteristics of each cluster for actionable insights.
 
-### 2. Dataset
+## Dataset
 
-The dataset used for this project is the "Credit Card Customer Dataset," which includes the following columns:
+- **Source**: `CC GENERAL.csv`
+- **Columns**: Includes features like balance, purchases, payments, credit limit, and tenure, among others.
+- **Target**: Not applicable; this is an unsupervised learning problem.
 
-- `CUST_ID`: Unique identifier for each customer.
-- `BALANCE`: Current balance on the credit card.
-- `PURCHASES`: Total purchases made.
-- `CASH_ADVANCE`: Amount withdrawn as cash advances.
-- `CREDIT_LIMIT`: Maximum credit limit for the card.
-- `PAYMENTS`: Total payments made by the customer.
-- `MINIMUM_PAYMENTS`: Minimum payment required.
-- `PRC_FULL_PAYMENT`: Percentage of payments made in full.
-- Additional features related to spending and payment behavior.
+## Key Features
 
-### 3. Methodology
+- `BALANCE`: Outstanding balance on the credit card.
+- `PURCHASES`: Total amount of purchases made by the cardholder.
+- `CASH_ADVANCE`: Cash advance taken by the cardholder.
+- `CREDIT_LIMIT`: Maximum credit limit assigned to the cardholder.
+- `PRC_FULL_PAYMENT`: Percentage of months the full payment was made.
 
-1. **Data Loading and Initial Inspection**:
-   - The dataset is loaded and initial inspection is performed to understand its structure and contents.
+## Methodology
 
-2. **Data Cleaning**:
-   - Missing values are imputed using the median for relevant columns, and duplicates are removed.
+### Data Preprocessing
 
-3. **Feature Engineering**:
-   - New features are created to enhance analysis, including:
-     - `MONTHLY_AVG_PURCHASE`: Average purchases per month.
-     - `CREDIT_UTILIZATION`: Ratio of current balance to credit limit.
-     - `PAYMENT_MIN_PAYMENT_RATIO`: Ratio of payments to minimum payments.
+- Removed duplicates and handled missing values using median imputation.
+- Standardized numerical features for clustering.
 
-4. **Data Scaling**:
-   - Numerical features are standardized to ensure uniformity across the dataset.
+### Feature Engineering
+- Created new features to capture customer behavior:
+  - **MONTHLY_AVG_PURCHASE**: Average monthly purchases.
+  - **CREDIT_UTILIZATION**: Ratio of balance to credit limit.
+  - **PAYMENT_MIN_PAYMENT_RATIO**: Ratio of payments to minimum payments.
 
-5. **Exploratory Data Analysis (EDA)**:
-   - Histograms, boxplots, and correlation heatmaps are generated to visualize and understand data distributions and relationships.
+### Exploratory Data Analysis
 
-6. **Customer Segmentation**:
-   - Customers are categorized based on spending behavior, purchase frequency, and payment habits.
+- Visualized distributions of key features using histograms and boxplots.
+- Identified correlations between features using a heatmap.
 
-7. **Clustering Analysis**:
-   - K-Means clustering is applied to group customers into distinct segments based on spending and payment characteristics.
+### Customer Segmentation
 
-### 4.Key Insights
+- Used the K-Means clustering algorithm to segment customers based on spending and payment behavior.
+- Determined the optimal number of clusters using the Elbow Method.
+
+### Cluster Profiling
+
+- Summarized key statistics (mean values) for each cluster.
+- Visualized feature distributions by cluster to understand customer segments.
+
+## Results
+
+- **Clusters Identified**:
+  - **High Spenders**: Customers with high purchases and balances, ideal for premium rewards programs.
+  - **Medium Spenders**: Moderate purchases and balanced payments, suitable for upselling and cross-selling.
+  - **Low Spenders**: Low purchases and utilization, requiring engagement campaigns to increase activity.
+
+- **Feature Insights**:
+  - `BALANCE` and `PURCHASES` were key differentiators among clusters.
+  - `CREDIT_UTILIZATION` provided insights into how customers manage their credit limits.
+
+## Key Visualizations
+- **Elbow Method**: Determined the optimal number of clusters.
+- **Boxplots**: Compared feature distributions across clusters.
+- **Cluster Counts**: Countplot showing the number of customers in each cluster.
+
+### Key Insights
 
 The analysis revealed key insights regarding customer segments:
 - **Spending Segments**:

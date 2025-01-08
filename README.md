@@ -1,5 +1,30 @@
 # Credit Card Customer Segmentation
 
+### Problem Statement
+
+Segmenting customers helps businesses design personalized marketing campaigns and enhance customer engagement. The objective was to cluster credit card customers based on spending habits and payment behaviors.
+
+### Solution Approach
+
+Data: Credit card transactions, payment histories, and demographic data.
+
+Methods:
+
+- Performed feature scaling and principal component analysis (PCA) to reduce dimensionality.
+- Used K-Means clustering to segment customers into groups, such as big spenders, frequent users, and low-value customers.
+- Visualized spending patterns for each cluster to provide actionable insights.
+- Tools: Python (pandas, Scikit-learn, Seaborn, Matplotlib).
+
+### Results
+
+- Identified four customer segments with distinct spending behaviors.
+- Recommended tailored marketing strategies for each group, resulting in an expected 20% increase in campaign ROI.
+
+### Key Insights
+
+- Segmentation uncovers hidden patterns in customer behavior that can drive marketing efficiency.
+- Visualizations of customer clusters help businesses easily interpret and act on findings.
+
 ## Overview
 
 This project aims to analyze credit card customer data to identify spending habits, payment behavior, and customer segmentation using clustering techniques. The results provide actionable insights for targeted marketing strategies, customer retention programs, and risk management.

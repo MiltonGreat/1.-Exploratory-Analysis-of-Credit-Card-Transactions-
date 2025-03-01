@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project aims to analyze credit card customer data to identify spending habits, payment behavior, and customer segmentation using clustering techniques. The results provide actionable insights for targeted marketing strategies, customer retention programs, and risk management.
+This project applies unsupervised machine learning techniques, specifically clustering, to segment customers in a credit card dataset based on their spending behaviors and financial characteristics. The goal is to group customers into meaningful segments that can be used for targeted marketing, risk management, and personalized product offerings.
 
 ### Project Goals
 
@@ -14,80 +14,45 @@ This project aims to analyze credit card customer data to identify spending habi
 
 ### Dataset
 
-- **Source**: `CC GENERAL.csv`
-- **Columns**: Includes features like balance, purchases, payments, credit limit, and tenure, among others.
-- **Target**: Not applicable; this is an unsupervised learning problem.
+The dataset includes various features related to customer spending behavior, including:
 
-### Key Features
+- Balance: Current credit card balance
+- Balance Frequency: How frequently the balance is updated
+- Purchases: Total purchases made
+- Oneoff Purchases: One-time purchases made by the customer
+- Installments Purchases: Purchases made in installments
+- Cash Advance: Total cash advances taken by the customer
+- Payments: Total payments made toward the credit card balance
+- Minimum Payments: Minimum required payments
+- Proportion of Full Payments (PRC_FULL_PAYMENT): Proportion of times the customer makes a full payment
+- Tenure: Duration of the customer's relationship with the bank
 
-- `BALANCE`: Outstanding balance on the credit card.
-- `PURCHASES`: Total amount of purchases made by the cardholder.
-- `CASH_ADVANCE`: Cash advance taken by the cardholder.
-- `CREDIT_LIMIT`: Maximum credit limit assigned to the cardholder.
-- `PRC_FULL_PAYMENT`: Percentage of months the full payment was made.
+### Methodology
 
-### Problem Statement
+**1. Data Preprocessing**:
+- Cleaned the dataset and handled missing or invalid data.
+- Scaled continuous variables to standardize the range for clustering analysis.
 
-Segmenting customers helps businesses design personalized marketing campaigns and enhance customer engagement. The objective was to cluster credit card customers based on spending habits and payment behaviors.
+**2. Clustering**:
+- Employed clustering techniques, such as K-Means, to segment the customers into four distinct clusters based on their financial behaviors.
 
-### Solution Approach
-
-#### Data Preprocessing
-
-- Removed duplicates and handled missing values using median imputation.
-- Standardized numerical features for clustering.
-
-#### Feature Engineering
-- Created new features to capture customer behavior:
-  - **MONTHLY_AVG_PURCHASE**: Average monthly purchases.
-  - **CREDIT_UTILIZATION**: Ratio of balance to credit limit.
-  - **PAYMENT_MIN_PAYMENT_RATIO**: Ratio of payments to minimum payments.
-
-####  Exploratory Data Analysis
-
-- Visualized distributions of key features using histograms and boxplots.
-- Identified correlations between features using a heatmap.
-
-#### Customer Segmentation
-
-- Used the K-Means clustering algorithm to segment customers based on spending and payment behavior.
-- Determined the optimal number of clusters using the Elbow Method.
-
-####  Key Visualizations
-
-- **Elbow Method**: Determined the optimal number of clusters.
-- **Boxplots**: Compared feature distributions across clusters.
-- **Cluster Counts**: Countplot showing the number of customers in each cluster.
+**3. Analysis & Insights**:
+- After clustering, the data was analyzed to provide detailed descriptions of each segment, focusing on key variables such as balance, purchases, payments, cash advances, and credit limits.
 
 ### Results
 
-- **Clusters Identified**:
-  - **High Spenders**: Customers with high purchases and balances, ideal for premium rewards programs.
-  - **Medium Spenders**: Moderate purchases and balanced payments, suitable for upselling and cross-selling.
-  - **Low Spenders**: Low purchases and utilization, requiring engagement campaigns to increase activity.
+#### Clusters
+- **Cluster 0 (Solid Credit Users)**: These customers tend to have moderate credit usage, with varying balances and a tendency to not pay off their balances in full. They represent potential credit risk, and retention strategies could encourage more responsible credit management.
 
-- **Feature Insights**:
-  - `BALANCE` and `PURCHASES` were key differentiators among clusters.
-  - `CREDIT_UTILIZATION` provided insights into how customers manage their credit limits.
+- **Cluster 1 (Conservative Credit Users)**: Low-risk customers with conservative spending behaviors and minimal payments. These customers may appreciate promotional offers and gradual credit limit increases.
 
-### Key Insights
+- **Cluster 2 (Disciplined Credit Users)**: Customers who manage their credit wisely, paying off balances in full and keeping low balances. They are ideal for loyalty programs and premium credit products.
 
-The analysis revealed key insights regarding customer segments:
+- **Cluster 3 (High Spend/High Cash Advance Users)**: High-value customers with high credit usage and cash advances, posing a potential risk due to their inconsistent payment behavior. These customers could benefit from financial tools aimed at reducing reliance on cash advances.
 
-- **Spending Segments**:
-  
-  - Medium Spender: 4474
-  - High Spender: 2238
-  - Low Spender: 2238
-
-- **Cluster Assignments**:
-
-  - Cluster 0: 1462 customers
-  - Cluster 1: 5989 customers
-  - Cluster 2: 1372 customers
-  - Cluster 3: 127 customers
-
-These insights can be leveraged to inform marketing strategies, enhance customer retention efforts, and improve risk management practices.
+#### Correlations
+- High correlation between variables like Balance and Credit Limit (0.53) indicates that customers with higher credit limits tend to carry higher balances.
+- Purchases and Oneoff Purchases are strongly correlated (0.92), showing that most purchases are made in one-time transactions.
 
 ### Source
 
